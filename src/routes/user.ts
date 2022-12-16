@@ -12,7 +12,7 @@ import { rmSync } from 'fs';
 const router = Router();
 
 
-
+  
 // console.log(process.env.SecretKey);
 router.post(
   '/signup', checkValidation,
@@ -76,7 +76,7 @@ router.post('/login',(req, res, next) => {
   });
 
 
-  router.get('/',  isAuth,async (req, res, next) => {
+  router.get('/', async (req, res, next) => {
     try {
       const userData = await userModel.find({})
       if (!userData) {

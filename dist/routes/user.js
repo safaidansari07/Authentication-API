@@ -18,7 +18,6 @@ const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-const isAuth_js_1 = require("../middleware/isAuth.js");
 const validation_js_1 = require("../middleware/validation.js");
 const router = (0, express_1.Router)();
 // console.log(process.env.SecretKey);
@@ -67,7 +66,7 @@ router.post('/login', (req, res, next) => {
         return res.status(500).send({ message: 'internal server error' });
     });
 });
-router.get('/', isAuth_js_1.isAuth, (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const userData = yield user_1.userModel.find({});
         if (!userData) {
